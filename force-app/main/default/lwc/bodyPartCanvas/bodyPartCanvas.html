@@ -1,0 +1,10 @@
+<template>
+    <div class="container">
+        <h2>Draw Your {bodyPartType}</h2>
+        <canvas class="drawing-canvas" width="400" height="300"></canvas>
+        <div class="controls">
+            <lightning-button label="Reset Canvas" onclick={resetCanvas} variant="neutral"></lightning-button>
+            <lightning-button label="Submit Drawing" onclick={saveDrawing} variant="brand"></lightning-button>
+        </div>
+    </div>
+</template>
