@@ -1,0 +1,28 @@
+minimum_cumulusci_version: '4.0.1'
+project:
+    name: ExquisiteCorpse
+    package:
+        name: ExquisiteCorpse
+        namespace: exquisitecorpse
+        api_version: '62.0'
+    git:
+        default_branch: 'main'
+    test:
+        name_match: '%_Test%'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/ExquisiteCorpse/tests
+            options:
+                outputdir: robot/ExquisiteCorpse/results
+
+    robot_testdoc:
+        options:
+            path: robot/ExquisiteCorpse/tests
+            output: robot/ExquisiteCorpse/doc/ExquisiteCorpse_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 85
