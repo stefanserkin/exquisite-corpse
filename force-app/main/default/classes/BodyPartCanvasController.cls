@@ -1,40 +1,42 @@
+/************************************************************************
+ * @description Save image files for the body part canvas lwc
+ * 
+ * @author SerkinSolutions
+ * @date 2025
+ ************************************************************************/
 public with sharing class BodyPartCanvasController {
     
     @AuraEnabled
     public static void saveFile(Id bodyPartId, String fileData) {
-        // Validate input
-        if (bodyPartId == null || String.isEmpty(fileData)) {
-            throw new AuraHandledException('Invalid parameters provided.');
-        }
-
         try {
-            // Decode the Base64 image data
-            String base64Data = fileData.split(',')[1]; // Remove the data:image/png;base64, prefix
+            // Remove the data:image/png;base64, prefix
+            String base64Data = fileData.split(',')[1];
             Blob imageBlob = EncodingUtil.base64Decode(base64Data);
 
-            // Create a new ContentVersion record
             ContentVersion contentVersion = new ContentVersion();
             contentVersion.Title = 'BodyPartDrawing_' + bodyPartId;
             contentVersion.PathOnClient = 'BodyPartDrawing.png';
             contentVersion.VersionData = imageBlob;
-            insert contentVersion;
+            Database.insert(contentVersion, AccessLevel.USER_MODE);
 
-            // Retrieve the ContentDocumentId
             ContentDocument contentDocument = [
-                SELECT Id FROM ContentDocument WHERE Id IN (
-                    SELECT ContentDocumentId FROM ContentVersion WHERE Id = :contentVersion.Id
-                ) LIMIT 1
+                SELECT Id 
+                  FROM ContentDocument 
+                 WHERE Id IN (SELECT ContentDocumentId 
+                                FROM ContentVersion 
+                               WHERE Id = :contentVersion.Id)
+                  WITH USER_MODE
+                 LIMIT 1
             ];
 
-            // Link the file to the Body Part record
             ContentDocumentLink link = new ContentDocumentLink();
             link.ContentDocumentId = contentDocument.Id;
             link.LinkedEntityId = bodyPartId;
-            link.ShareType = 'I'; // 'I' for Inferred permissions
+            link.ShareType = 'I';
             link.Visibility = 'AllUsers';
-            insert link;
-        } catch (Exception ex) {
-            throw new AuraHandledException('Error saving file: ' + ex.getMessage());
+            Database.insert(link, AccessLevel.USER_MODE);
+        } catch (Exception e) {
+            throw new AuraHandledException('Error saving file: ' + e.getMessage());
         }
     }
     
