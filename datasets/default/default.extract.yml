@@ -1,0 +1,6 @@
+
+extract:
+    Body_Type__c:
+        fields: FIELDS(ALL)
+    Body_Part_Type__c:
+        fields: FIELDS(ALL)
