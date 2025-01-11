@@ -153,7 +153,7 @@
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
     <label>Body Part Type</label>
     <nameField>
         <label>Body Part Name</label>
@@ -161,8 +161,9 @@
     </nameField>
     <pluralLabel>Body Part Types</pluralLabel>
     <searchLayouts>
+        <searchResultsAdditionalFields>Body_Type__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Sort_Order__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
