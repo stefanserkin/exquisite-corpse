@@ -78,7 +78,6 @@ public with sharing class CorpseCreator {
     /**
      * To use the CorpseCreator, create a request object with a Body_Type__c id and a collection of user ids
      */
-    private static Integer requestIdCounter = 0;
 
     public class Request {
         public Integer id {get; private set;}
@@ -88,7 +87,7 @@ public with sharing class CorpseCreator {
 
         public Request() {
             requestIdCounter++;
-            this.id = requestIdCounter;
+            this.id = System.UUID.randomUUID();
         }
     }
 
