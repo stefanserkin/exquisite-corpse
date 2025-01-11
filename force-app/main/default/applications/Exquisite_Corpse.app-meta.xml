@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>logoiconsquareblue_3</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>Exquisite Corpse</label>
+    <navType>Standard</navType>
+    <tabs>Body_Part_Set__c</tabs>
+    <tabs>Body_Part_Type__c</tabs>
+    <tabs>Exquisite_Corpse__c</tabs>
+    <tabs>Body_Part__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Exquisite_Corpse_UtilityBar</utilityBar>
+</CustomApplication>
