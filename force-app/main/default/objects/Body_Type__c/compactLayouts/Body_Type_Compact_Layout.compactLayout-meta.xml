@@ -3,5 +3,6 @@
     <fullName>Body_Type_Compact_Layout</fullName>
     <fields>Name</fields>
     <fields>Active__c</fields>
+    <fields>Number_of_Parts__c</fields>
     <label>Body Type Compact Layout</label>
 </CompactLayout>
