@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Body_Type__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
     <label>Body Type</label>
     <referenceTo>Body_Type__c</referenceTo>
     <relationshipLabel>Body Part Types</relationshipLabel>
     <relationshipName>Body_Part_Types</relationshipName>
-    <relationshipOrder>0</relationshipOrder>
-    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <required>true</required>
     <trackTrending>false</trackTrending>
-    <type>MasterDetail</type>
-    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    <type>Lookup</type>
 </CustomField>
