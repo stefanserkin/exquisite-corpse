@@ -7,9 +7,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 391
+            "duration": 278
         },
-        "TestTimestamp": "2025-01-11T01:34:23.000+0000"
+        "TestTimestamp": "2025-01-11T19:41:40.000+0000"
     },
     {
         "Children": null,
@@ -19,7 +19,239 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 859,
+            "duration": 438,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 1,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 2,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 19,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 1,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 2,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-01-11T19:41:40.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "BodyPartNamer_Test",
+        "Method": "makeData",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 229
+        },
+        "TestTimestamp": "2025-01-11T19:41:39.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "BodyPartNamer_Test",
+        "Method": "testAutoName",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 210,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 3,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 18,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 3,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-01-11T19:41:39.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "BodyPartNamer_Test",
+        "Method": "testAutoNameWithoutArtist",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 64,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 3,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 0,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 11,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 2,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 0,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-01-11T19:41:39.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "CorpseCreator_Test",
+        "Method": "makeData",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 111
+        },
+        "TestTimestamp": "2025-01-11T19:41:39.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "CorpseCreator_Test",
+        "Method": "testGetCorpses",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 276,
+            "TESTING_LIMITS: Number of SOQL queries": {
+                "used": 3,
+                "allowed": 100
+            },
+            "TESTING_LIMITS: Number of Email Invocations": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of future calls": {
+                "used": 0,
+                "allowed": 50
+            },
+            "TESTING_LIMITS: Number of DML rows": {
+                "used": 4,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Maximum CPU time": {
+                "used": 28,
+                "allowed": 10000
+            },
+            "TESTING_LIMITS: Number of query rows": {
+                "used": 5,
+                "allowed": 50000
+            },
+            "TESTING_LIMITS: Number of DML statements": {
+                "used": 2,
+                "allowed": 150
+            },
+            "TESTING_LIMITS: Number of Mobile Apex push calls": {
+                "used": 0,
+                "allowed": 10
+            },
+            "TESTING_LIMITS: Number of SOSL queries": {
+                "used": 0,
+                "allowed": 20
+            },
+            "TESTING_LIMITS: Number of callouts": {
+                "used": 0,
+                "allowed": 100
+            }
+        },
+        "TestTimestamp": "2025-01-11T19:41:40.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "CorpseCreator_Test",
+        "Method": "testGetCorpsesWithInvalidUserList",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 54,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -37,7 +269,7 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 28,
+                "used": 17,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
@@ -61,6 +293,162 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-01-11T01:34:23.000+0000"
+        "TestTimestamp": "2025-01-11T19:41:40.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerHandler_Test",
+        "Method": "testAfterDelete",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 18
+        },
+        "TestTimestamp": "2025-01-11T19:41:39.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerHandler_Test",
+        "Method": "testAfterInsert",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-01-11T19:41:39.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerHandler_Test",
+        "Method": "testAfterUndelete",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-01-11T19:41:39.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerHandler_Test",
+        "Method": "testAfterUpdate",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-01-11T19:41:39.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerHandler_Test",
+        "Method": "testBeforeDelete",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-01-11T19:41:39.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerHandler_Test",
+        "Method": "testBeforeInsert",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-01-11T19:41:39.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerHandler_Test",
+        "Method": "testBeforeUpdate",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-01-11T19:41:39.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerHandler_Test",
+        "Method": "testBypassAPI",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-01-11T19:41:39.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerHandler_Test",
+        "Method": "testGetHandlerName",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 1
+        },
+        "TestTimestamp": "2025-01-11T19:41:40.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerHandler_Test",
+        "Method": "testLoopCount",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 3
+        },
+        "TestTimestamp": "2025-01-11T19:41:40.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerHandler_Test",
+        "Method": "testLoopCountClass",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 1
+        },
+        "TestTimestamp": "2025-01-11T19:41:40.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerHandler_Test",
+        "Method": "testNonTriggerContext",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 2
+        },
+        "TestTimestamp": "2025-01-11T19:41:40.000+0000"
+    },
+    {
+        "Children": null,
+        "ClassName": "TriggerHandler_Test",
+        "Method": "testVirtualMethods",
+        "Message": null,
+        "Outcome": "Pass",
+        "StackTrace": null,
+        "Stats": {
+            "duration": 1
+        },
+        "TestTimestamp": "2025-01-11T19:41:40.000+0000"
     }
 ]

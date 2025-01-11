@@ -1,5 +1,8 @@
 public with sharing class CorpseCreator {
 
+    @TestVisible
+    private static final String INVALID_USER_LIST_MESSAGE = 'The number of users must match the number of body parts';
+
     private static final String DEFAULT_STATUS = 'In Progress';
     private static final String WAITING_STATUS = 'Waiting';
     private static final String DEFAULT_CORPSE_NAME = 'New Corpse';
@@ -36,7 +39,7 @@ public with sharing class CorpseCreator {
 
     private void validateRequest(Request req) {
         if (req.artistIds.size() != bodyTypesWithParts.get(req.bodyTypeId).Body_Part_Types__r.size()) {
-            throw new ExquisiteCorpseException('The number of users must match the number of body parts');
+            throw new ExquisiteCorpseException(INVALID_USER_LIST_MESSAGE);
         }
     }
 

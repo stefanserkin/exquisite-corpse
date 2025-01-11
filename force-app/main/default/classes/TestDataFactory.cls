@@ -1,48 +1,47 @@
 @IsTest
 public class TestDataFactory {
 
-    /*
-    public static Body_Part_Set__c createBodyPartSetWithTypes() {
-        Body_Part_Set__c bps = new Body_Part_Set__c();
-        bps.Name = 'Test Species';
-        bps.Active__c = true;
-        insert bps;
+    public static Body_Type__c createBodyTypeWithParts() {
+        Body_Type__c bodyType = new Body_Type__c();
+        bodyType.Name = 'Hideous Monster';
+        bodyType.Active__c = true;
+        insert bodyType;
 
-        List<Body_Part_Type__c> bpts = createBodyPartTypes(bps.Id, 3);
+        List<Body_Part_Type__c> bpts = createBodyPartTypes(bodyType.Id, 3);
         insert bpts;
 
-        return bps;
+        return bodyType;
     }
 
-    public static List<Body_Part_Type__c> createBodyPartTypes(Id bodyPartSetId, Integer numberOfTypes) {
+    public static List<Body_Part_Type__c> createBodyPartTypes(Id bodyTypeId, Integer numberOfTypes) {
         List<Body_Part_Type__c> bpts = new List<Body_Part_Type__c>();
         for (Integer i = 0; i < numberOfTypes; i++) {
             Body_Part_Type__c bpt = new Body_Part_Type__c();
             bpt.Name = 'Test Body Part ' + String.valueOf(i);
-            bpt.Body_Part_Set__c = bodyPartSetId;
+            bpt.Body_Type__c = bodyTypeId;
             bpt.Sort_Order__c = i;
             bpts.add(bpt);
         }
         return bpts;
     }
 
-    public static Exquisite_Corpse__c createCorpse(Body_Part_Set__c bodyPartSet) {
-        Body_Part_Set__c bps = [
+    public static Exquisite_Corpse__c createCorpse(Body_Type__c bodyType) {
+        bodyType = [
             SELECT Id, Name, (SELECT Id, Name, Sort_Order__c FROM Body_Part_Types__r)
-              FROM Body_Part_Set__c
-             WHERE Id = :bodyPartSet.Id
+              FROM Body_Type__c
+             WHERE Id = :bodyType.Id
              LIMIT 1
         ];
 
         Exquisite_Corpse__c corpse = new Exquisite_Corpse__c();
-        corpse.Body_Part_Set__c = bps.Id;
+        corpse.Body_Type__c = bodyType.Id;
         corpse.Name = 'Test Corpse';
         corpse.Status__c = 'In Progress';
         insert corpse;
 
         List<Body_Part__c> bodyParts = new List<Body_Part__c>();
         Integer counter = 0;
-        for (Body_Part_Type__c bpt : bps.Body_Part_Types__r) {
+        for (Body_Part_Type__c bpt : bodyType.Body_Part_Types__r) {
             counter++;
 
             Body_Part__c bp = new Body_Part__c();
@@ -57,5 +56,5 @@ public class TestDataFactory {
 
         return corpse;
     }
-    */
+
 }
