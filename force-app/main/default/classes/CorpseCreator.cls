@@ -9,7 +9,7 @@ public with sharing class CorpseCreator {
 
     private List<Request> requests;
     private Map<Id, Body_Type__c> bodyTypesWithParts;
-    private Map<Integer, Exquisite_Corpse__c> corpsesByRequestId;
+    private Map<String, Exquisite_Corpse__c> corpsesByRequestId;
 
     public CorpseCreator(List<Request> requests) {
         this.requests = requests;
@@ -25,7 +25,7 @@ public with sharing class CorpseCreator {
     }
 
     private void createCorpsesFromRequests() {
-        corpsesByRequestId = new Map<Integer, Exquisite_Corpse__c>();
+        corpsesByRequestId = new Map<String, Exquisite_Corpse__c>();
         for (Request request : requests) {
             validateRequest(request);
 
@@ -80,7 +80,7 @@ public with sharing class CorpseCreator {
      */
 
     public class Request {
-        public Integer id {get; private set;}
+        public String id {get; private set;}
         public Id bodyTypeId {get; set;}
         public List<Id> artistIds {get; set;}
         public String corpseName {get; set;}
