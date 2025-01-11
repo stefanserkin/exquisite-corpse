@@ -1,3 +1,9 @@
+/******************************************************************
+ * @description Trigger handler for the Body Part object
+ * 
+ * @author SerkinSolutions
+ * @date 2025
+ ******************************************************************/
 public with sharing class BodyPartTriggerHandler extends TriggerHandler {
 
     private List<Body_Part__c> newList;

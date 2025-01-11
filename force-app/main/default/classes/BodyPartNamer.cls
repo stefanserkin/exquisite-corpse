@@ -1,3 +1,9 @@
+/******************************************************************
+ * @description Handle naming of new body part records
+ * 
+ * @author SerkinSolutions
+ * @date 2025
+ ******************************************************************/
 public with sharing class BodyPartNamer {
 
     public static void autoName(List<Body_Part__c> bodyParts) {
