@@ -26,6 +26,10 @@
                 <behavior>Required</behavior>
                 <field>Body_Part_Type__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Sort_Order__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

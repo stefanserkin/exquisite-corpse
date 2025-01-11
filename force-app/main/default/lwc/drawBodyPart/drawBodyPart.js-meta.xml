@@ -10,7 +10,7 @@
     <targetConfigs>
         <targetConfig targets="lightning__RecordPage">
             <objects>
-                <object>Exquisite_Corpse__c</object>
+                <object>Body_Part__c</object>
             </objects>
         </targetConfig>
     </targetConfigs>
