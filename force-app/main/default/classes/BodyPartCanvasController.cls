@@ -35,6 +35,9 @@ public with sharing class BodyPartCanvasController {
             link.ShareType = 'I';
             link.Visibility = 'AllUsers';
             Database.insert(link, AccessLevel.USER_MODE);
+
+            Body_Part__c bodyPart = new Body_Part__c(Id = bodyPartId, Status__c = 'Complete');
+            Database.update(bodyPart, AccessLevel.USER_MODE);
         } catch (Exception e) {
             throw new AuraHandledException('Error saving file: ' + e.getMessage());
         }

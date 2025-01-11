@@ -1,83 +1,46 @@
-import { LightningElement, api } from 'lwc';
-import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import saveFile from '@salesforce/apex/BodyPartCanvasController.saveFile';
+import { LightningElement, api, wire } from 'lwc';
+import { RefreshEvent } from 'lightning/refresh';
+import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
+import STATUS_FIELD from '@salesforce/schema/Body_Part__c.Status__c';
+import CORPSE_NAME_FIELD from '@salesforce/schema/Body_Part__c.Exquisite_Corpse__r.Name';
+import BODY_PART_TYPE_FIELD from '@salesforce/schema/Body_Part__c.Body_Part_Type__r.Name';
+
+const fields = [STATUS_FIELD, CORPSE_NAME_FIELD, BODY_PART_TYPE_FIELD];
 
 export default class BodyPartCanvas extends LightningElement {
-    @api bodyPartId; // The current Body Part record ID
-    @api bodyPartType; // Type of the Body Part (e.g., Head, Torso, Legs)
+    @api recordId;
+    error;
+    isLoading = false;
 
-    canvas;
-    ctx;
+    status;
+    corpseName;
+    bodyPartType;
 
-    connectedCallback() {
-        this.resetCanvas = this.resetCanvas.bind(this);
-        this.saveDrawing = this.saveDrawing.bind(this);
+    get isWaiting() {
+        return this.status && this.status === 'Waiting';
     }
 
-    renderedCallback() {
-        if (!this.canvas) {
-            this.canvas = this.template.querySelector('canvas');
-            this.ctx = this.canvas.getContext('2d');
-            this.setupDrawing();
+    get isInProgress() {
+        return this.status && this.status === 'In Progress';
+    }
+
+    get isComplete() {
+        return this.status && this.status === 'Complete';
+    }
+
+    @wire(getRecord, { recordId: '$recordId', fields })
+    record({ error, data }){
+        if (data) {
+            this.status = getFieldValue(data, STATUS_FIELD);
+            this.corpseName = getFieldValue(data, CORPSE_NAME_FIELD);
+            this.bodyPartType = getFieldValue(data, BODY_PART_TYPE_FIELD);
+        } else if (error) {
+            this.error = error;
         }
     }
 
-    setupDrawing() {
-        let isDrawing = false;
-        const rect = this.canvas.getBoundingClientRect();
-
-        this.canvas.addEventListener('mousedown', (event) => {
-            isDrawing = true;
-            this.ctx.beginPath();
-            this.ctx.moveTo(event.clientX - rect.left, event.clientY - rect.top);
-        });
-
-        this.canvas.addEventListener('mousemove', (event) => {
-            if (isDrawing) {
-                this.ctx.lineTo(event.clientX - rect.left, event.clientY - rect.top);
-                this.ctx.stroke();
-            }
-        });
-
-        this.canvas.addEventListener('mouseup', () => {
-            isDrawing = false;
-        });
-
-        this.canvas.addEventListener('mouseleave', () => {
-            isDrawing = false;
-        });
+    refreshComponent() {
+        this.dispatchEvent(new RefreshEvent());
     }
 
-    resetCanvas() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    }
-
-    saveDrawing() {
-        const imageData = this.canvas.toDataURL('image/png'); // Convert canvas to Base64
-        const bodyPartId = this.bodyPartId;
-
-        saveFile({
-            bodyPartId,
-            fileData: imageData
-        })
-            .then(() => {
-                this.dispatchEvent(
-                    new ShowToastEvent({
-                        title: 'Success',
-                        message: 'Drawing saved successfully!',
-                        variant: 'success'
-                    })
-                );
-                this.resetCanvas();
-            })
-            .catch((error) => {
-                this.dispatchEvent(
-                    new ShowToastEvent({
-                        title: 'Error saving drawing',
-                        message: error.body.message,
-                        variant: 'error'
-                    })
-                );
-            });
-    }
 }

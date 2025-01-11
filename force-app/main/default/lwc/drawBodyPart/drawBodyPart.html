@@ -1,5 +1,10 @@
 <template>
-    <lightning-card title="Draw Body Part">
-        <p class="slds-var-m-around_medium">Record ID: {recordId}</p>
-    </lightning-card>
+    <div class="container">
+        <h2>Draw {corpseName}'s {bodyPartType}</h2>
+        <canvas class="drawing-canvas" width="400" height="300"></canvas>
+        <div class="controls">
+            <lightning-button label="Reset Canvas" onclick={resetCanvas} variant="neutral"></lightning-button>
+            <lightning-button label="Submit Drawing" onclick={saveDrawing} variant="brand"></lightning-button>
+        </div>
+    </div>
 </template>

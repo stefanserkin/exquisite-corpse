@@ -1,10 +1,27 @@
 <template>
-    <div class="container">
-        <h2>Draw Your {bodyPartType}</h2>
-        <canvas class="drawing-canvas" width="400" height="300"></canvas>
-        <div class="controls">
-            <lightning-button label="Reset Canvas" onclick={resetCanvas} variant="neutral"></lightning-button>
-            <lightning-button label="Submit Drawing" onclick={saveDrawing} variant="brand"></lightning-button>
-        </div>
-    </div>
+    <lightning-card title="Draw Body Part">
+        <p class="slds-var-m-around_medium">Record ID: {recordId}</p>
+        <p class="slds-var-m-around_medium">Body Part Type: {bodyPartType}</p>
+        <p class="slds-var-m-around_medium">Status: {status}</p>
+
+        <template lwc:if={isWaiting}>
+            <p class="slds-var-m-around_medium">Waiting on others... check back soon!</p>
+        </template>
+
+        <!-- ON IN PROGRESS: DRAW BODY PART -->
+        <template lwc:elseif={isInProgress}>
+            <c-draw-body-part
+                body-part-id={recordId}
+                corpse-name={corpseName}
+                body-part-type={bodyPartType}
+                onrefresh={refreshComponent}
+            ></c-draw-body-part>
+        </template>
+
+        <!-- TODO - ON COMPLETE: PREVIEW MOST RECENT FILE -->
+        <template lwc:if={isComplete}>
+            <p class="slds-var-m-around_medium">Drawing is complete</p>
+        </template>
+
+    </lightning-card>
 </template>
