@@ -143,24 +143,24 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>A section of an Exquisite Corpse drawing, assigned to an individual user</description>
+    <description>An individual section of a body part set</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableLicensing>false</enableLicensing>
     <enableReports>false</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>Private</externalSharingModel>
-    <label>Body Part</label>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>Body Part Type</label>
     <nameField>
         <label>Body Part Name</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Body Parts</pluralLabel>
+    <pluralLabel>Body Part Types</pluralLabel>
     <searchLayouts></searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

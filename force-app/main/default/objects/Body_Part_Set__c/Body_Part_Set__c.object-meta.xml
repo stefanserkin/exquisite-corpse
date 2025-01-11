@@ -143,7 +143,7 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>A section of an Exquisite Corpse drawing, assigned to an individual user</description>
+    <description>A template for a game of Exquisite Corpse, defining the body parts included in the game</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
@@ -154,12 +154,12 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-    <label>Body Part</label>
+    <label>Body Part Set</label>
     <nameField>
-        <label>Body Part Name</label>
+        <label>Body Part Set Name</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Body Parts</pluralLabel>
+    <pluralLabel>Body Part Sets</pluralLabel>
     <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

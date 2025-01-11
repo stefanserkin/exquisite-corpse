@@ -6,17 +6,19 @@ private class BodyPartCanvasController_Test {
         Exquisite_Corpse__c testCorpse = new Exquisite_Corpse__c(Name = 'Test Corpse');
         insert testCorpse;
 
+        /*
         Body_Part__c testBodyPart = new Body_Part__c(
-            Name = 'Test Body Part',
-            Exquisite_Corpse__c = testCorpse.Id
+            Name = 'Test Body Part'
+            // Exquisite_Corpse__c = testCorpse.Id
         );
         insert testBodyPart;
+        */
 
         // Simulate a Base64 image string (small red dot PNG for testing purposes)
         String base64Image = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAHElEQVR42mP8z/C/HwAFwAMEAAADAAEd4EQaAAAAAElFTkSuQmCC';
 
         Test.startTest();
-        BodyPartCanvasController.saveFile(testBodyPart.Id, base64Image);
+        BodyPartCanvasController.saveFile(testCorpse.Id, base64Image);
         Test.stopTest();
 
         ContentVersion[] contentVersions = [
@@ -30,7 +32,7 @@ private class BodyPartCanvasController_Test {
         ContentDocumentLink[] links = [
             SELECT Id, ContentDocumentId, LinkedEntityId, ShareType, Visibility
             FROM ContentDocumentLink
-            WHERE LinkedEntityId = :testBodyPart.Id
+            WHERE LinkedEntityId = :testCorpse.Id
         ];
         System.assertEquals(1, links.size(), 'One ContentDocumentLink should have been created for the Body Part.');
         System.assertEquals('I', links[0].ShareType, 'The ShareType should be inferred (I).');

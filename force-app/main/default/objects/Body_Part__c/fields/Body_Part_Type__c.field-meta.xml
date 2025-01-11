@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Exquisite_Corpse__c</fullName>
+    <fullName>Body_Part_Type__c</fullName>
     <deleteConstraint>Restrict</deleteConstraint>
-    <label>Exquisite Corpse</label>
-    <referenceTo>Exquisite_Corpse__c</referenceTo>
+    <label>Body Part Type</label>
+    <referenceTo>Body_Part_Type__c</referenceTo>
     <relationshipLabel>Body Parts</relationshipLabel>
     <relationshipName>Body_Parts</relationshipName>
     <required>true</required>
