@@ -1,3 +1,4 @@
-<testsuite tests="1">
-  <testcase classname="BodyPartCanvasController_Test" name="testSaveFile" time="5794" />
+<testsuite tests="2">
+  <testcase classname="BodyPartCanvasController_Test" name="makeData" time="263" />
+  <testcase classname="BodyPartCanvasController_Test" name="testSaveFile" time="474" />
 </testsuite>
