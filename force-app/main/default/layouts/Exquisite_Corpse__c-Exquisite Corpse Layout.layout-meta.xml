@@ -16,7 +16,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Body_Part_Set__c</field>
+                <field>Body_Type__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

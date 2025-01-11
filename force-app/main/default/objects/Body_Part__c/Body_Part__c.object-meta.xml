@@ -166,13 +166,7 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Body Parts</pluralLabel>
-    <searchLayouts>
-        <searchResultsAdditionalFields>Exquisite_Corpse__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Body_Part_Type__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Sort_Order__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Artist__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
-    </searchLayouts>
+    <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

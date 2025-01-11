@@ -160,10 +160,7 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Body Part Types</pluralLabel>
-    <searchLayouts>
-        <searchResultsAdditionalFields xsi:nil></searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Sort_Order__c</searchResultsAdditionalFields>
-    </searchLayouts>
+    <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

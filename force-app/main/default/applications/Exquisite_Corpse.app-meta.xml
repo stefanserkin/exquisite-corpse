@@ -14,7 +14,7 @@
     <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
     <label>Exquisite Corpse</label>
     <navType>Standard</navType>
-    <tabs>Body_Part_Set__c</tabs>
+    <tabs>Body_Type__c</tabs>
     <tabs>Body_Part_Type__c</tabs>
     <tabs>Exquisite_Corpse__c</tabs>
     <tabs>Body_Part__c</tabs>
