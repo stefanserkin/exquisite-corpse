@@ -81,10 +81,10 @@ public with sharing class CorpseCreator {
     private static Integer requestIdCounter = 0;
 
     public class Request {
-        public Integer id {public get; private set;}
-        public Id bodyTypeId;
-        public List<Id> artistIds;
-        public String corpseName;
+        public Integer id {get; private set;}
+        public Id bodyTypeId {get; set;}
+        public List<Id> artistIds {get; set;}
+        public String corpseName {get; set;}
 
         public Request() {
             requestIdCounter++;
