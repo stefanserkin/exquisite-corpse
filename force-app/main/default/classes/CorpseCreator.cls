@@ -86,7 +86,7 @@ public with sharing class CorpseCreator {
         public String corpseName {get; set;}
 
         public Request() {
-            this.id = System.UUID.randomUUID();
+            this.id = System.UUID.randomUUID().toString();
         }
     }
 
