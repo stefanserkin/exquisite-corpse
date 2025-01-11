@@ -7,7 +7,7 @@ public with sharing class ExquisiteCorpseTriggerHandler extends TriggerHandler {
     }
     
     public override void afterInsert() {
-        
+        System.debug('do after insert stuff');
     }
 
 }
