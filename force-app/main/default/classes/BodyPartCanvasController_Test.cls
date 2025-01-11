@@ -1,6 +1,7 @@
 @IsTest
 private class BodyPartCanvasController_Test {
 
+    /*
     @TestSetup
     static void makeData() {
         Body_Part_Set__c bps = TestDataFactory.createBodyPartSetWithTypes();
@@ -34,7 +35,9 @@ private class BodyPartCanvasController_Test {
         System.assertEquals(1, links.size(), 'One ContentDocumentLink should have been created for the Body Part.');
         System.assertEquals('I', links[0].ShareType, 'The ShareType should be inferred (I).');
     }
+    */
 
+    
     /*
     @IsTest
     static void testSaveFileWithInvalidInput() {

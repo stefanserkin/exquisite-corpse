@@ -31,6 +31,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Body_Type__c.Active__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Exquisite_Corpse__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -69,6 +74,15 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+        <object>Body_Type__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>Exquisite_Corpse__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
@@ -82,6 +96,10 @@
     </tabSettings>
     <tabSettings>
         <tab>Body_Part__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Body_Type__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>

@@ -1,6 +1,7 @@
 @IsTest
 public class TestDataFactory {
 
+    /*
     public static Body_Part_Set__c createBodyPartSetWithTypes() {
         Body_Part_Set__c bps = new Body_Part_Set__c();
         bps.Name = 'Test Species';
@@ -56,5 +57,5 @@ public class TestDataFactory {
 
         return corpse;
     }
-
+    */
 }

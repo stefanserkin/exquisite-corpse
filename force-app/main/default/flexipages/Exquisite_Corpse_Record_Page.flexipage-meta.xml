@@ -55,10 +55,10 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Body_Part_Set__c</fieldItem>
-                <identifier>RecordBody_Part_Set_cField</identifier>
+                <fieldItem>Record.Body_Type__c</fieldItem>
+                <identifier>RecordBody_Type__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-f335eb21-b7cf-4c3f-8334-3f80ed1db771</name>
