@@ -1,22 +1,22 @@
 <testsuite tests="21">
-  <testcase classname="BodyPartCanvasController_Test" name="makeData" time="254" />
-  <testcase classname="BodyPartCanvasController_Test" name="testSaveFile" time="339" />
-  <testcase classname="BodyPartNamer_Test" name="makeData" time="51" />
-  <testcase classname="BodyPartNamer_Test" name="testAutoName" time="71" />
-  <testcase classname="BodyPartNamer_Test" name="testAutoNameWithoutArtist" time="51" />
-  <testcase classname="CorpseCreator_Test" name="makeData" time="68" />
-  <testcase classname="CorpseCreator_Test" name="testGetCorpses" time="153" />
-  <testcase classname="CorpseCreator_Test" name="testGetCorpsesWithInvalidUserList" time="35" />
-  <testcase classname="TriggerHandler_Test" name="testAfterDelete" time="25" />
+  <testcase classname="BodyPartCanvasController_Test" name="makeData" time="258" />
+  <testcase classname="BodyPartCanvasController_Test" name="testSaveFile" time="439" />
+  <testcase classname="BodyPartNamer_Test" name="makeData" time="166" />
+  <testcase classname="BodyPartNamer_Test" name="testAutoName" time="168" />
+  <testcase classname="BodyPartNamer_Test" name="testAutoNameWithoutArtist" time="57" />
+  <testcase classname="CorpseCreator_Test" name="makeData" time="82" />
+  <testcase classname="CorpseCreator_Test" name="testGetCorpses" time="134" />
+  <testcase classname="CorpseCreator_Test" name="testGetCorpsesWithInvalidUserList" time="22" />
+  <testcase classname="TriggerHandler_Test" name="testAfterDelete" time="38" />
   <testcase classname="TriggerHandler_Test" name="testAfterInsert" time="5" />
-  <testcase classname="TriggerHandler_Test" name="testAfterUndelete" time="5" />
+  <testcase classname="TriggerHandler_Test" name="testAfterUndelete" time="4" />
   <testcase classname="TriggerHandler_Test" name="testAfterUpdate" time="4" />
-  <testcase classname="TriggerHandler_Test" name="testBeforeDelete" time="5" />
+  <testcase classname="TriggerHandler_Test" name="testBeforeDelete" time="4" />
   <testcase classname="TriggerHandler_Test" name="testBeforeInsert" time="4" />
   <testcase classname="TriggerHandler_Test" name="testBeforeUpdate" time="4" />
-  <testcase classname="TriggerHandler_Test" name="testBypassAPI" time="5" />
+  <testcase classname="TriggerHandler_Test" name="testBypassAPI" time="4" />
   <testcase classname="TriggerHandler_Test" name="testGetHandlerName" time="4" />
-  <testcase classname="TriggerHandler_Test" name="testLoopCount" time="7" />
+  <testcase classname="TriggerHandler_Test" name="testLoopCount" time="5" />
   <testcase classname="TriggerHandler_Test" name="testLoopCountClass" time="4" />
   <testcase classname="TriggerHandler_Test" name="testNonTriggerContext" time="4" />
   <testcase classname="TriggerHandler_Test" name="testVirtualMethods" time="4" />
