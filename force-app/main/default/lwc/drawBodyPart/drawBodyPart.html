@@ -1,7 +1,12 @@
 <template>
+    <lightning-spinner lwc:if={isLoading} title="Loading" alternative-text="Loading..." size="medium"></lightning-spinner>
     <div class="container">
-        <h2>Draw {corpseName}'s {bodyPartType}</h2>
+        <template lwc:if={currentBodyPart}>
+            <h3 class="slds-text-heading_small">Draw the {currentBodyPart.bodyPartType} of {currentBodyPart.corpseName}</h3>
+        </template>
+        
         <canvas class="drawing-canvas" width="400" height="300"></canvas>
+
         <div class="controls">
             <lightning-button label="Reset Canvas" onclick={resetCanvas} variant="neutral"></lightning-button>
             <lightning-button label="Submit Drawing" onclick={saveDrawing} variant="brand"></lightning-button>

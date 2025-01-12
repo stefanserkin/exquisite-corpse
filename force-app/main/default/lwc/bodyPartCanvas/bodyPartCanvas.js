@@ -1,57 +1,52 @@
-import { LightningElement, api, wire } from 'lwc';
+import { LightningElement, api, wire, track } from 'lwc';
 import { RefreshEvent } from 'lightning/refresh';
+import { refreshApex } from '@salesforce/apex';
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
 import getCorpseBodyParts from '@salesforce/apex/BodyPartCanvasController.getCorpseBodyParts';
-import STATUS_FIELD from '@salesforce/schema/Body_Part__c.Status__c';
-import CORPSE_NAME_FIELD from '@salesforce/schema/Body_Part__c.Exquisite_Corpse__r.Name';
-import BODY_PART_TYPE_FIELD from '@salesforce/schema/Body_Part__c.Body_Part_Type__r.Name';
-
-const fields = [STATUS_FIELD, CORPSE_NAME_FIELD, BODY_PART_TYPE_FIELD];
+import CORPSE_ID_FIELD from '@salesforce/schema/Body_Part__c.Exquisite_Corpse__c';
 
 export default class BodyPartCanvas extends LightningElement {
     @api recordId;
     error;
     isLoading = false;
 
-    status;
-    corpseName;
-    bodyPartType;
-
+    corpseId;
     wiredBodyParts = [];
-    bodyParts;
+    @track bodyParts;
+
+    get currentBodyPart() {
+        return this.bodyParts?.find(obj => obj.id === this.recordId);
+    }
 
     get isWaiting() {
-        return this.status && this.status === 'Waiting';
+        return this.currentBodyPart && this.currentBodyPart.status === 'Waiting';
     }
 
     get isInProgress() {
-        return this.status && this.status === 'In Progress';
+        return this.currentBodyPart && this.currentBodyPart.status === 'In Progress';
     }
 
     get isComplete() {
-        return this.status && this.status === 'Complete';
+        return this.currentBodyPart && this.currentBodyPart.status === 'Complete';
     }
 
     get waitingOnInfo() {
-        if (!this.bodyParts) {
-            return;
-        }
-        console.log('Record id --> ', recordId);
-        console.log(JSON.stringify(this.bodyParts));
+        if (!this.bodyParts) return;
         const activePart = this.bodyParts.find(obj => {
             return obj.id === this.recordId
         });
-        console.log('found active part --> ' + JSON.stringify(activePart));
         return `Waiting on ${activePart.artistFirstName} to draw the ${activePart.bodyPartType} of the ${activePart.corpseName}`;
     }
 
-    @wire(getCorpseBodyParts, { corpseId: '$recordId' })
+    @wire(getCorpseBodyParts, { corpseId: '$corpseId' })
     wiredResult(result) {
         this.isLoading = true;
         this.wiredBodyParts = result;
 
         if (result.data) {
+            console.log('got body part data');
             this.bodyParts = JSON.parse( JSON.stringify(result.data) );
+            console.log(JSON.stringify(this.bodyParts));
             this.error = undefined;
         } else if (result.error) {
             this.bodyParts = undefined;
@@ -60,18 +55,20 @@ export default class BodyPartCanvas extends LightningElement {
         }
     }
 
-    @wire(getRecord, { recordId: '$recordId', fields })
+    @wire(getRecord, { recordId: '$recordId', fields: [CORPSE_ID_FIELD] })
     record({ error, data }){
         if (data) {
-            this.status = getFieldValue(data, STATUS_FIELD);
-            this.corpseName = getFieldValue(data, CORPSE_NAME_FIELD);
-            this.bodyPartType = getFieldValue(data, BODY_PART_TYPE_FIELD);
+            console.log('wired record with corpse id --> ');
+            this.corpseId = getFieldValue(data, CORPSE_ID_FIELD);
+            console.log(this.corpseId);
         } else if (error) {
             this.error = error;
+            console.error(this.error);
         }
     }
 
     refreshComponent() {
+        refreshApex(this.wiredBodyParts);
         this.dispatchEvent(new RefreshEvent());
     }
 

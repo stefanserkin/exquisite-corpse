@@ -1,0 +1,12 @@
+<template>
+    <div class="preview-container">
+        <template if:true={imageSrc}>
+            <img src={imageSrc} alt="Body Part Preview" class="body-part-image" />
+        </template>
+        <template if:true={error}>
+            <div class="error-message">
+                {error}
+            </div>
+        </template>
+    </div>
+</template>

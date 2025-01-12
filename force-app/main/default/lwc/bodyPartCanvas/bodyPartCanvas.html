@@ -1,9 +1,6 @@
 <template>
-    <lightning-card title="Draw Body Part">
-        <p class="slds-var-m-around_medium">Record ID: {recordId}</p>
-        <p class="slds-var-m-around_medium">Body Part Type: {bodyPartType}</p>
-        <p class="slds-var-m-around_medium">Status: {status}</p>
-
+    <lightning-card title="Body Part Canvas">
+        <!-- ON WAITING: SHOW INFO ON CURRENT STAGE -->
         <template lwc:if={isWaiting}>
             <p class="slds-var-m-around_medium">{waitingOnInfo}</p>
         </template>
@@ -12,16 +9,16 @@
         <template lwc:elseif={isInProgress}>
             <c-draw-body-part
                 body-part-id={recordId}
-                corpse-name={corpseName}
-                body-part-type={bodyPartType}
+                body-parts={bodyParts}
                 onrefresh={refreshComponent}
             ></c-draw-body-part>
         </template>
 
         <!-- TODO - ON COMPLETE: PREVIEW MOST RECENT FILE -->
-        <template lwc:if={isComplete}>
-            <p class="slds-var-m-around_medium">Drawing is complete</p>
+        <template lwc:elseif={isComplete}>
+            <c-preview-body-part
+                body-part-id={recordId}
+            ></c-preview-body-part>
         </template>
-
     </lightning-card>
 </template>

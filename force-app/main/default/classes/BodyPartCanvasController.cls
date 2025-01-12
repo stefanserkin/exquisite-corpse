@@ -6,7 +6,7 @@
  ************************************************************************/
 public with sharing class BodyPartCanvasController {
 
-    @AuraEnabled
+    @AuraEnabled(cacheable=true)
     public static List<BodyPart> getCorpseBodyParts(Id corpseId) {
         try {
             return BodyPartService.getCorpseBodyParts(corpseId);
@@ -15,7 +15,7 @@ public with sharing class BodyPartCanvasController {
         }
     }
 
-    @AuraEnabled
+    @AuraEnabled(cacheable=true)
     public static String getLatestFile(Id bodyPartId) {
         try {
             String base64Data = BodyPartService.getLatestFile(bodyPartId);
@@ -25,7 +25,7 @@ public with sharing class BodyPartCanvasController {
         }
     }
     
-    @AuraEnabled
+    @AuraEnabled(cacheable=false)
     public static String saveFile(Id bodyPartId, String fileData) {
         try {
             Id contentDocumentId = BodyPartService.saveFile(bodyPartId, fileData);
