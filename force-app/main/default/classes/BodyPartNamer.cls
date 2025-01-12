@@ -44,6 +44,7 @@ public with sharing class BodyPartNamer {
             SELECT Id, Name, Body_Type__r.Name
               FROM Body_Part_Type__c
              WHERE Id IN :bptIds
+             ORDER BY Sort_Order__c ASC
         ]);
     }
 

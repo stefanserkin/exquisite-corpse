@@ -75,7 +75,9 @@ public with sharing class CorpseCreator {
 
         return new Map<Id, Body_Type__c>([
             SELECT Id, Name,
-                   (SELECT Id, Name, Sort_Order__c FROM Body_Part_Types__r)
+                   (SELECT Id, Name, Sort_Order__c 
+                      FROM Body_Part_Types__r 
+                     ORDER BY Sort_Order__c ASC)
               FROM Body_Type__c
              WHERE Id IN :bodyTypeIds
         ]);
