@@ -22,6 +22,52 @@ private class BodyPartService_Test {
     }
 
     @IsTest
+    static void testGetLatestFile() {
+        Body_Part__c bodyPart = [SELECT Id FROM Body_Part__c LIMIT 1];
+
+        Blob fileBlob = Blob.valueOf('Test File Content');
+        ContentVersion contentVersion = new ContentVersion(
+            Title = 'BodyPartDrawing_' + String.valueOf(bodyPart.Id),
+            PathOnClient = 'test-file.png',
+            VersionData = fileBlob,
+            IsMajorVersion = true
+        );
+        insert contentVersion;
+
+        ContentDocumentLink contentLink = new ContentDocumentLink(
+            ContentDocumentId = [SELECT ContentDocumentId FROM ContentVersion WHERE Id = :contentVersion.Id LIMIT 1].ContentDocumentId,
+            LinkedEntityId = bodyPart.Id,
+            ShareType = 'I',
+            Visibility = 'AllUsers'
+        );
+        insert contentLink;
+
+        Test.startTest();
+        String base64File = BodyPartService.getLatestFile(bodyPart.Id);
+        Test.stopTest();
+
+        System.Assert.areEqual(EncodingUtil.base64Encode(fileBlob), base64File, 'The Base64-encoded file content does not match.');
+    }
+
+    @IsTest
+    static void testGetLatestFileWithNoFiles() {
+        Body_Part__c bodyPart = [SELECT Id FROM Body_Part__c LIMIT 1];
+
+        Test.startTest();
+        try {
+            String result = BodyPartService.getLatestFile(bodyPart.Id);
+            System.Assert.fail('Expected exception for missing file, but no exception was thrown.');
+        } catch (ExquisiteCorpseException e) {
+            System.Assert.isTrue(
+                e.getMessage().contains('There are no files associated with record id'),
+                'Expected exception message for missing file.'
+            );
+        }
+        Test.stopTest();
+    }
+
+
+    @IsTest
     static void testSaveFile() {
         Body_Part__c bodyPart = [SELECT Id FROM Body_Part__c WHERE Status__c = 'In Progress' LIMIT 1];
 

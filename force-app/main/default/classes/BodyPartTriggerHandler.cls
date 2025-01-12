@@ -24,4 +24,9 @@ public with sharing class BodyPartTriggerHandler extends TriggerHandler {
         BodyPartService.updateRecordNames(newList, oldMap);
     }
 
+    public override void afterUpdate() {
+        // Handle related actions for newly completed body part records
+        BodyPartService.handleStatusCompleted(newList, oldMap);
+    }
+
 }
