@@ -1,3 +1,3 @@
-trigger ExquisiteCorpseTrigger on Exquisite_Corpse__c (after insert) {
+trigger ExquisiteCorpseTrigger on Exquisite_Corpse__c (before update) {
     new ExquisiteCorpseTriggerHandler().run();
 }
