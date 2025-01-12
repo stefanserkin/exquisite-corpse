@@ -6,8 +6,6 @@
  ******************************************************************/
 public with sharing class ExquisiteCorpseTriggerHandler extends TriggerHandler {
 
-    private static final String STATUS_COMPLETE = 'Complete';
-
     private Map<Id, Exquisite_Corpse__c> newMap;
     private Map<Id, Exquisite_Corpse__c> oldMap;
 
