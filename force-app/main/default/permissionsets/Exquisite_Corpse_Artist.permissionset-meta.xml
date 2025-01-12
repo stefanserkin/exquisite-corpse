@@ -32,6 +32,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Exquisite_Corpse__c.Completed_Date_Time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Exquisite_Corpse__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>

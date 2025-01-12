@@ -18,6 +18,10 @@
                 <behavior>Required</behavior>
                 <field>Body_Type__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Completed_Date_Time__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

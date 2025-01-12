@@ -61,6 +61,12 @@
                 <identifier>RecordBody_Type__cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Completed_Date_Time__c</fieldItem>
+                <identifier>RecordCompleted_Date_Time__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-f335eb21-b7cf-4c3f-8334-3f80ed1db771</name>
         <type>Facet</type>
     </flexiPageRegions>
