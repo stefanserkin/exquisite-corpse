@@ -1,9 +1,11 @@
 import { LightningElement, api, wire } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import getLatestFile from '@salesforce/apex/BodyPartCanvasController.getLatestFile';
 import saveFile from '@salesforce/apex/BodyPartCanvasController.saveFile';
 
 export default class DrawBodyPart extends LightningElement {
     @api bodyPartId;
+    @api previousBodyPartId;
     @api corpseName;
     @api bodyPartType;
 
@@ -20,6 +22,7 @@ export default class DrawBodyPart extends LightningElement {
             this.canvas = this.template.querySelector('canvas');
             this.ctx = this.canvas.getContext('2d');
             this.setupDrawing();
+            this.loadSharedZone();
         }
     }
 
@@ -51,6 +54,7 @@ export default class DrawBodyPart extends LightningElement {
 
     resetCanvas() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.renderCanvasZones();
     }
 
     saveDrawing() {
@@ -62,7 +66,8 @@ export default class DrawBodyPart extends LightningElement {
             bodyPartId,
             fileData: imageData
         })
-            .then(() => {
+            .then((result) => {
+                console.log('New Content Document ID: ' + result);
                 this.dispatchEvent(
                     new ShowToastEvent({
                         title: 'Success',
@@ -82,6 +87,47 @@ export default class DrawBodyPart extends LightningElement {
                     })
                 );
             });
+    }
+
+    /**
+     * Loads the shared zone from the previous body part's drawing
+     */
+    loadSharedZone() {
+        getLatestFile({ bodyPartId: this.bodyPartId })
+            .then((base64Data) => {
+                const image = new Image();
+                image.onload = () => {
+                    this.ctx.drawImage(image, 0, this.canvas.height - 10, this.canvas.width, 10, 0, 0, this.canvas.width, 10);
+                };
+                image.src = 'data:image/png;base64,' + base64Data;
+            })
+            .catch((error) => {
+                console.error('Error loading shared zone:', error);
+            });
+    }
+
+    renderCanvasZones() {
+        const zoneHeight = 10; // Height of the shared zone in pixels
+        const canvasWidth = this.canvas.width;
+
+        // Top shared zone
+        this.ctx.fillStyle = "rgba(255, 0, 0, 0.2)"; // Semi-transparent red
+        this.ctx.fillRect(0, 0, canvasWidth, zoneHeight);
+        this.ctx.strokeStyle = "red";
+        this.ctx.strokeRect(0, 0, canvasWidth, zoneHeight);
+
+        // Bottom shared zone
+        const bottomZoneY = this.canvas.height - zoneHeight;
+        this.ctx.fillStyle = "rgba(0, 255, 0, 0.2)"; // Semi-transparent green
+        this.ctx.fillRect(0, bottomZoneY, canvasWidth, zoneHeight);
+        this.ctx.strokeStyle = "green";
+        this.ctx.strokeRect(0, bottomZoneY, canvasWidth, zoneHeight);
+
+        // Optional: Add text for clarity
+        this.ctx.fillStyle = "black";
+        this.ctx.font = "12px Arial";
+        this.ctx.fillText("Shared Zone", 10, zoneHeight - 2); // Top zone
+        this.ctx.fillText("Shared Zone", 10, bottomZoneY + zoneHeight - 2); // Bottom zone
     }
 
 }

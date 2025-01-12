@@ -5,7 +5,7 @@
         <p class="slds-var-m-around_medium">Status: {status}</p>
 
         <template lwc:if={isWaiting}>
-            <p class="slds-var-m-around_medium">Waiting on others... check back soon!</p>
+            <p class="slds-var-m-around_medium">{waitingOnInfo}</p>
         </template>
 
         <!-- ON IN PROGRESS: DRAW BODY PART -->
