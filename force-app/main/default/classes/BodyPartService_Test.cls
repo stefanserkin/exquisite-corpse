@@ -8,6 +8,20 @@ private class BodyPartService_Test {
     }
 
     @IsTest
+    static void testGetCorpseBodyParts() {
+        Exquisite_Corpse__c corpse = [SELECT Id, (SELECT Id, Status__c, Body_Part_Type__r.Name, Artist__r.FirstName FROM Body_Parts__r ORDER BY Sort_Order__c ASC) FROM Exquisite_Corpse__c LIMIT 1];
+        Test.startTest();
+        List<BodyPart> bodyParts = BodyPartService.getCorpseBodyParts(corpse.Id);
+        Test.stopTest();
+        System.Assert.areEqual(corpse.Body_Parts__r.size(), bodyParts.size(), 'Received incorrect number of body parts');
+        for (Integer i = 0; i < bodyParts.size(); i++) {
+            System.Assert.areEqual(corpse.Body_Parts__r[i].Body_Part_Type__r.Name, bodyParts[i].bodyPartType, 'Received incorrect body part type');
+            System.Assert.areEqual(corpse.Body_Parts__r[i].Artist__r.FirstName, bodyParts[i].artistFirstName, 'Received incorrect artist first name');
+            System.Assert.areEqual(corpse.Body_Parts__r[i].Status__c, bodyParts[i].status, 'Received incorrect artist first name');
+        }
+    }
+
+    @IsTest
     static void testSaveFile() {
         Body_Part__c bodyPart = [SELECT Id FROM Body_Part__c WHERE Status__c = 'In Progress' LIMIT 1];
 
@@ -47,19 +61,5 @@ private class BodyPartService_Test {
         }
         Test.stopTest();
     }
-    
-    /*
-    @IsTest
-    static void testSaveFileWithInvalidRecordId() {
-        Test.startTest();
-        try {
-            BodyPartService.saveFile(null, 'validBase64ImageData');
-            System.assert(false, 'Exception should have been thrown for null Body Part ID.');
-        } catch (AuraHandledException ex) {
-            System.assert(ex.getMessage().contains('Invalid parameters provided'), 'Expected exception for null Body Part ID.');
-        }
-        Test.stopTest();
-    }
-        */
 
 }
