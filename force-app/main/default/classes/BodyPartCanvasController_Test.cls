@@ -23,39 +23,16 @@ private class BodyPartCanvasController_Test {
               FROM ContentVersion
              WHERE Title LIKE 'BodyPartDrawing_%'
         ];
-        System.assertEquals(1, contentVersions.size(), 'One ContentVersion record should have been created.');
-        System.assert(contentVersions[0].PathOnClient.endsWith('.png'), 'The file should have a .png extension.');
+        System.assertEquals(1, contentVersions.size(), 'One ContentVersion record should have been created');
+        System.assert(contentVersions[0].PathOnClient.endsWith('.png'), 'The file should have a .png extension');
 
         ContentDocumentLink[] links = [
             SELECT Id, ContentDocumentId, LinkedEntityId, ShareType, Visibility
               FROM ContentDocumentLink
              WHERE LinkedEntityId = :bodyPart.Id
         ];
-        System.assertEquals(1, links.size(), 'One ContentDocumentLink should have been created for the Body Part.');
-        System.assertEquals('I', links[0].ShareType, 'The ShareType should be inferred (I).');
+        System.assertEquals(1, links.size(), 'One ContentDocumentLink should have been created for the Body Part');
+        System.assertEquals('I', links[0].ShareType, 'The ShareType should be inferred (I)');
     }
-
-    
-    /*
-    @IsTest
-    static void testSaveFileWithInvalidInput() {
-        Test.startTest();
-        try {
-            BodyPartCanvasController.saveFile(null, 'validBase64ImageData');
-            System.assert(false, 'Exception should have been thrown for null Body Part ID.');
-        } catch (AuraHandledException ex) {
-            System.assert(ex.getMessage().contains('Invalid parameters provided'), 'Expected exception for null Body Part ID.');
-        }
-
-        // Test with an empty fileData
-        try {
-            BodyPartCanvasController.saveFile(Id.valueOf('001000000000000AAA'), '');
-            System.assert(false, 'Exception should have been thrown for empty fileData.');
-        } catch (AuraHandledException ex) {
-            System.assert(ex.getMessage().contains('Invalid parameters provided'), 'Expected exception for empty fileData.');
-        }
-        Test.stopTest();
-    }
-        */
     
 }
