@@ -137,7 +137,7 @@ public with sharing class BodyPartService {
         }
 
         if (!bodyPartsToRename.isEmpty()) {
-            BodyPartNamer.autoName(bodyPartsToRename);
+            new BodyPartNamer(bodyPartsToRename).autoName();
         }
     }
 

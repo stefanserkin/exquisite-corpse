@@ -34,7 +34,7 @@ public with sharing class ExquisiteCorpseService {
         List<Exquisite_Corpse__c> corpsesWithNameChanges = filterToCorpsesWithNameChanges();
         if (!corpsesWithNameChanges.isEmpty()) {
             List<Body_Part__c> bodyPartsToRename = getBodyPartsForCorpses(corpsesWithNameChanges);
-            bodyPartsToRename = BodyPartNamer.autoName(bodyPartsToRename);
+            bodyPartsToRename = new BodyPartNamer(bodyPartsToRename).autoName();
             Database.update(bodyPartsToRename, AccessLevel.SYSTEM_MODE);
         }
     }

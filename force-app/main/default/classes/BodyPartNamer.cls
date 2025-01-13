@@ -6,23 +6,43 @@
  ******************************************************************/
 public with sharing class BodyPartNamer {
 
-    public static List<Body_Part__c> autoName(List<Body_Part__c> bodyParts) {
-        Map<Id, Body_Part_Type__c> bodyPartTypeMap = getBodyPartTypeMap(bodyParts);
-        Map<Id, Exquisite_Corpse__c> corpseMap = getCorpseMap(bodyParts);
-        Map<Id, User> userMap = getUserMap(bodyParts);
+    private List<Body_Part__c> bodyParts;
+    private Map<Id, Exquisite_Corpse__c> corpseMap;
+    private Map<Id, Body_Part_Type__c> bodyPartTypeMap;
+    private Map<Id, User> userMap;
+
+    public BodyPartNamer(List<Body_Part__c> bodyParts) {
+        this.bodyParts = bodyParts;
+        loadMaps();
+    }
+
+    public List<Body_Part__c> autoName() {
         for (Body_Part__c bp : bodyParts) {
-            Body_Part_Type__c partType = bodyPartTypeMap.get(bp.Body_Part_Type__c);
-            Exquisite_Corpse__c corpse = corpseMap.get(bp.Exquisite_Corpse__c);
-            String newName = corpse.Name + ' ' + partType.Name;
-            if (bp.Artist__c != null && userMap.containsKey(bp.Artist__c)) {
-                newName += ' - ' + userMap.get(bp.Artist__c).FirstName;
-            }
-            bp.Name = newName.left(80);
+            bp.Name = constructBodyPartName(bp);
         }
         return bodyParts;
     }
 
-    private static Map<Id, Exquisite_Corpse__c> getCorpseMap(List<Body_Part__c> bodyParts) {
+    private String constructBodyPartName(Body_Part__c bodyPart) {
+        Body_Part_Type__c partType = bodyPartTypeMap.get(bodyPart.Body_Part_Type__c);
+        Exquisite_Corpse__c corpse = corpseMap.get(bodyPart.Exquisite_Corpse__c);
+        String newName = corpse.Name + ' ' + partType.Name;
+        if (bodyPart.Artist__c != null && userMap.containsKey(bodyPart.Artist__c)) {
+            newName += ' - ' + userMap.get(bodyPart.Artist__c).FirstName;
+        }
+        return newName.left(80);
+    }
+
+    /**
+     * Base data loaded in constructor
+     */
+    private void loadMaps() {
+        this.corpseMap = getCorpseMap();
+        this.bodyPartTypeMap = getBodyPartTypeMap();
+        this.userMap = getUserMap();
+    }
+
+    private Map<Id, Exquisite_Corpse__c> getCorpseMap() {
         Set<Id> corpseIds = new Set<Id>();
         for (Body_Part__c bp : bodyParts) {
             corpseIds.add(bp.Exquisite_Corpse__c);
@@ -35,7 +55,7 @@ public with sharing class BodyPartNamer {
         ]);
     }
 
-    private static Map<Id, Body_Part_Type__c> getBodyPartTypeMap(List<Body_Part__c> bodyParts) {
+    private Map<Id, Body_Part_Type__c> getBodyPartTypeMap() {
         Set<Id> bptIds = new Set<Id>();
         for (Body_Part__c bp : bodyParts) {
             bptIds.add(bp.Body_Part_Type__c);
@@ -49,7 +69,7 @@ public with sharing class BodyPartNamer {
         ]);
     }
 
-    private static Map<Id, User> getUserMap(List<Body_Part__c> bodyParts) {
+    private Map<Id, User> getUserMap() {
         Set<Id> userIds = new Set<Id>();
         for (Body_Part__c bp : bodyParts) {
             if (bp.Artist__c != null) {

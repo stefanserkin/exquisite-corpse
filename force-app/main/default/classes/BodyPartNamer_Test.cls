@@ -20,7 +20,7 @@ private class BodyPartNamer_Test {
             Status__c = 'In Progress'
         );
         Test.startTest();
-        BodyPartNamer.autoName(new List<Body_Part__c>{ bodyPart });
+        new BodyPartNamer( new List<Body_Part__c>{ bodyPart } ).autoName();
         Test.stopTest();
 
         System.Assert.isNotNull(bodyPart.Name, 'The body part should have received a name');
@@ -44,7 +44,7 @@ private class BodyPartNamer_Test {
         );
 
         Test.startTest();
-        BodyPartNamer.autoName(new List<Body_Part__c>{ bodyPart });
+        new BodyPartNamer( new List<Body_Part__c>{ bodyPart } ).autoName();
         Test.stopTest();
 
         System.Assert.isNotNull(bodyPart.Name, 'The body part should have received a name');
