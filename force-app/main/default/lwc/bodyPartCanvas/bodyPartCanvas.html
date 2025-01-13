@@ -2,7 +2,9 @@
     <lightning-card title="Body Part Canvas">
         <!-- ON WAITING: SHOW INFO ON CURRENT STAGE -->
         <template lwc:if={isWaiting}>
-            <p class="slds-var-m-around_medium">{waitingOnInfo}</p>
+            <p class="slds-var-m-around_medium">
+                {waitingOnInfo}
+            </p>
         </template>
 
         <!-- ON IN PROGRESS: DRAW BODY PART -->

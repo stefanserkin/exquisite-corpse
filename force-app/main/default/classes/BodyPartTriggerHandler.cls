@@ -15,14 +15,17 @@ public with sharing class BodyPartTriggerHandler extends TriggerHandler {
     }
 
     public override void beforeInsert() {
+        // Sync artist user to owner field
+        this.bodyPartService.syncArtistToOwner();
+
         // Auto-name records based on related context
         this.bodyPartService.updateRecordNames();
     }
 
     public override void beforeUpdate() {
         // Sync artist user to owner field
-        // this.bodyPartService.syncArtistToOwner(newList, oldMap);
-
+        this.bodyPartService.syncArtistToOwner();
+        
         // Auto-name records based on related context
         this.bodyPartService.updateRecordNames();
     }

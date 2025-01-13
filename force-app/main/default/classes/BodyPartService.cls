@@ -92,6 +92,17 @@ public with sharing class BodyPartService {
      ******************************************************************/
 
     /**
+     * Sync the artist user to the owner field
+     */
+    public void syncArtistToOwner() {
+        for (Body_Part__c bp : newList) {
+            if (bp.Artist__c != null && bp.OwnerId != bp.Artist__c) {
+                bp.OwnerId = bp.Artist__c;
+            }
+        }
+    }
+
+    /**
      * Handle associated actions when a body part status is changed to Complete
      */
     public void handleStatusCompleted() {

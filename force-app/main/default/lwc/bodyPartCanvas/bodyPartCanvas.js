@@ -14,30 +14,6 @@ export default class BodyPartCanvas extends LightningElement {
     wiredBodyParts = [];
     @track bodyParts;
 
-    get currentBodyPart() {
-        return this.bodyParts?.find(obj => obj.id === this.recordId);
-    }
-
-    get isWaiting() {
-        return this.currentBodyPart && this.currentBodyPart.status === 'Waiting';
-    }
-
-    get isInProgress() {
-        return this.currentBodyPart && this.currentBodyPart.status === 'In Progress';
-    }
-
-    get isComplete() {
-        return this.currentBodyPart && this.currentBodyPart.status === 'Complete';
-    }
-
-    get waitingOnInfo() {
-        if (!this.bodyParts) return;
-        const activePart = this.bodyParts.find(obj => {
-            return obj.id === this.recordId
-        });
-        return `Waiting on ${activePart.artistFirstName} to draw the ${activePart.bodyPartType} of the ${activePart.corpseName}`;
-    }
-
     @wire(getCorpseBodyParts, { corpseId: '$corpseId' })
     wiredResult(result) {
         this.isLoading = true;
@@ -70,6 +46,28 @@ export default class BodyPartCanvas extends LightningElement {
     refreshComponent() {
         refreshApex(this.wiredBodyParts);
         this.dispatchEvent(new RefreshEvent());
+    }
+
+    get currentBodyPart() {
+        return this.bodyParts?.find(obj => obj.id === this.recordId);
+    }
+
+    get isWaiting() {
+        return this.currentBodyPart && this.currentBodyPart.status === 'Waiting';
+    }
+
+    get isInProgress() {
+        return this.currentBodyPart && this.currentBodyPart.status === 'In Progress';
+    }
+
+    get isComplete() {
+        return this.currentBodyPart && this.currentBodyPart.status === 'Complete';
+    }
+
+    get waitingOnInfo() {
+        if (!this.bodyParts) return;
+        const activePart = this.bodyParts.find(obj => obj.status === 'In Progress');
+        return `Waiting on ${activePart.artistFirstName} to draw the ${activePart.bodyPartType} of the ${activePart.corpseName}`;
     }
 
 }
