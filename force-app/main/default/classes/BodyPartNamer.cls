@@ -6,7 +6,7 @@
  ******************************************************************/
 public with sharing class BodyPartNamer {
 
-    public static void autoName(List<Body_Part__c> bodyParts) {
+    public static List<Body_Part__c> autoName(List<Body_Part__c> bodyParts) {
         Map<Id, Body_Part_Type__c> bodyPartTypeMap = getBodyPartTypeMap(bodyParts);
         Map<Id, Exquisite_Corpse__c> corpseMap = getCorpseMap(bodyParts);
         Map<Id, User> userMap = getUserMap(bodyParts);
@@ -19,6 +19,7 @@ public with sharing class BodyPartNamer {
             }
             bp.Name = newName.left(80);
         }
+        return bodyParts;
     }
 
     private static Map<Id, Exquisite_Corpse__c> getCorpseMap(List<Body_Part__c> bodyParts) {

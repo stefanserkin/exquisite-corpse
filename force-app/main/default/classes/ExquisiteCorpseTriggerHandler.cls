@@ -6,17 +6,22 @@
  ******************************************************************/
 public with sharing class ExquisiteCorpseTriggerHandler extends TriggerHandler {
 
-    private Map<Id, Exquisite_Corpse__c> newMap;
-    private Map<Id, Exquisite_Corpse__c> oldMap;
+    private ExquisiteCorpseService exquisiteCorpseService;
 
     public ExquisiteCorpseTriggerHandler() {
-        this.newMap = (Map<Id, Exquisite_Corpse__c>) Trigger.newMap;
-        this.oldMap = (Map<Id, Exquisite_Corpse__c>) Trigger.oldMap;
+        List<Exquisite_Corpse__c> newList = (List<Exquisite_Corpse__c>) Trigger.new;
+        Map<Id, Exquisite_Corpse__c> oldMap = (Map<Id, Exquisite_Corpse__c>) Trigger.oldMap;
+        this.exquisiteCorpseService = new ExquisiteCorpseService(newList, oldMap);
     }
     
     public override void beforeUpdate() {
         // Stamp the completed date/time for newly completed corpses
-        ExquisiteCorpseService.handleCompletedCorpses(newMap.values(), oldMap);
+        this.exquisiteCorpseService.handleCompletedCorpses();
+    }
+
+    public override void afterUpdate() {
+        // Update names of child body parts if relevant details have changed
+        this.exquisiteCorpseService.renameBodyParts();
     }
 
 }
