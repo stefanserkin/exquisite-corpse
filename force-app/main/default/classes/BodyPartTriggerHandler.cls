@@ -6,27 +6,30 @@
  ******************************************************************/
 public with sharing class BodyPartTriggerHandler extends TriggerHandler {
 
-    private List<Body_Part__c> newList;
-    private Map<Id, Body_Part__c> oldMap;
+    private BodyPartService bodyPartService;
 
     public BodyPartTriggerHandler() {
-        this.newList = (List<Body_Part__c>) Trigger.new;
-        this.oldMap = (Map<Id, Body_Part__c>) Trigger.oldMap;
+        List<Body_Part__c> newList = (List<Body_Part__c>) Trigger.new;
+        Map<Id, Body_Part__c> oldMap = (Map<Id, Body_Part__c>) Trigger.oldMap;
+        this.bodyPartService = new BodyPartService(newList, oldMap);
     }
 
     public override void beforeInsert() {
         // Auto-name records based on related context
-        BodyPartService.updateRecordNames(newList);
+        this.bodyPartService.updateRecordNames();
     }
 
     public override void beforeUpdate() {
+        // Sync artist user to owner field
+        // this.bodyPartService.syncArtistToOwner(newList, oldMap);
+
         // Auto-name records based on related context
-        BodyPartService.updateRecordNames(newList, oldMap);
+        this.bodyPartService.updateRecordNames();
     }
 
     public override void afterUpdate() {
         // Handle related actions for newly completed body part records
-        BodyPartService.handleStatusCompleted(newList, oldMap);
+        this.bodyPartService.handleStatusCompleted();
     }
 
 }

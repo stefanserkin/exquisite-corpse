@@ -7,9 +7,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 450
+            "duration": 426
         },
-        "TestTimestamp": "2025-01-12T21:40:50.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -19,9 +19,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 808,
+            "duration": 675,
             "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
+                "used": 3,
                 "allowed": 100
             },
             "TESTING_LIMITS: Number of Email Invocations": {
@@ -33,19 +33,19 @@
                 "allowed": 50
             },
             "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
+                "used": 4,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 33,
+                "used": 31,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
+                "used": 5,
                 "allowed": 50000
             },
             "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
+                "used": 4,
                 "allowed": 150
             },
             "TESTING_LIMITS: Number of Mobile Apex push calls": {
@@ -61,7 +61,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -71,9 +71,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 439
+            "duration": 305
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:41.000+0000"
     },
     {
         "Children": null,
@@ -83,9 +83,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 184,
+            "duration": 192,
             "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
+                "used": 2,
                 "allowed": 100
             },
             "TESTING_LIMITS: Number of Email Invocations": {
@@ -97,19 +97,19 @@
                 "allowed": 50
             },
             "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
+                "used": 2,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 18,
+                "used": 16,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
+                "used": 4,
                 "allowed": 50000
             },
             "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
+                "used": 2,
                 "allowed": 150
             },
             "TESTING_LIMITS: Number of Mobile Apex push calls": {
@@ -125,7 +125,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:41.000+0000"
     },
     {
         "Children": null,
@@ -135,9 +135,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 115
+            "duration": 112
         },
-        "TestTimestamp": "2025-01-12T21:40:50.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -147,9 +147,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 214,
+            "duration": 329,
             "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
+                "used": 3,
                 "allowed": 100
             },
             "TESTING_LIMITS: Number of Email Invocations": {
@@ -165,11 +165,11 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 18,
+                "used": 15,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
+                "used": 3,
                 "allowed": 50000
             },
             "TESTING_LIMITS: Number of DML statements": {
@@ -189,7 +189,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-01-12T21:40:50.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -199,9 +199,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 97,
+            "duration": 56,
             "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
+                "used": 3,
                 "allowed": 100
             },
             "TESTING_LIMITS: Number of Email Invocations": {
@@ -217,11 +217,11 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 12,
+                "used": 10,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
+                "used": 2,
                 "allowed": 50000
             },
             "TESTING_LIMITS: Number of DML statements": {
@@ -241,7 +241,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:41.000+0000"
     },
     {
         "Children": null,
@@ -251,9 +251,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 215
+            "duration": 389
         },
-        "TestTimestamp": "2025-01-12T21:40:50.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -263,9 +263,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 102,
+            "duration": 152,
             "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
+                "used": 1,
                 "allowed": 100
             },
             "TESTING_LIMITS: Number of Email Invocations": {
@@ -281,11 +281,11 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 26,
+                "used": 23,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
+                "used": 3,
                 "allowed": 50000
             },
             "TESTING_LIMITS: Number of DML statements": {
@@ -305,7 +305,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:41.000+0000"
     },
     {
         "Children": null,
@@ -315,9 +315,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 590,
+            "duration": 872,
             "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
+                "used": 2,
                 "allowed": 100
             },
             "TESTING_LIMITS: Number of Email Invocations": {
@@ -333,11 +333,11 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 92,
+                "used": 91,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
+                "used": 2,
                 "allowed": 50000
             },
             "TESTING_LIMITS: Number of DML statements": {
@@ -357,7 +357,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:41.000+0000"
     },
     {
         "Children": null,
@@ -367,9 +367,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 18,
+            "duration": 40,
             "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
+                "used": 1,
                 "allowed": 100
             },
             "TESTING_LIMITS: Number of Email Invocations": {
@@ -385,7 +385,7 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 3,
+                "used": 5,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
@@ -409,7 +409,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-01-12T21:40:52.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:42.000+0000"
     },
     {
         "Children": null,
@@ -419,9 +419,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 364,
+            "duration": 537,
             "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
+                "used": 3,
                 "allowed": 100
             },
             "TESTING_LIMITS: Number of Email Invocations": {
@@ -433,19 +433,19 @@
                 "allowed": 50
             },
             "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
+                "used": 4,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 23,
+                "used": 26,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
+                "used": 5,
                 "allowed": 50000
             },
             "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
+                "used": 4,
                 "allowed": 150
             },
             "TESTING_LIMITS: Number of Mobile Apex push calls": {
@@ -461,7 +461,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-01-12T21:40:52.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:42.000+0000"
     },
     {
         "Children": null,
@@ -471,7 +471,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 11,
+            "duration": 30,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -489,7 +489,7 @@
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 3,
+                "used": 5,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
@@ -513,7 +513,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-01-12T21:40:52.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:43.000+0000"
     },
     {
         "Children": null,
@@ -523,9 +523,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 94
+            "duration": 83
         },
-        "TestTimestamp": "2025-01-12T21:40:50.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -535,9 +535,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 342,
+            "duration": 310,
             "TESTING_LIMITS: Number of SOQL queries": {
-                "used": 0,
+                "used": 3,
                 "allowed": 100
             },
             "TESTING_LIMITS: Number of Email Invocations": {
@@ -549,19 +549,19 @@
                 "allowed": 50
             },
             "TESTING_LIMITS: Number of DML rows": {
-                "used": 0,
+                "used": 4,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Maximum CPU time": {
-                "used": 23,
+                "used": 20,
                 "allowed": 10000
             },
             "TESTING_LIMITS: Number of query rows": {
-                "used": 0,
+                "used": 5,
                 "allowed": 50000
             },
             "TESTING_LIMITS: Number of DML statements": {
-                "used": 0,
+                "used": 2,
                 "allowed": 150
             },
             "TESTING_LIMITS: Number of Mobile Apex push calls": {
@@ -577,7 +577,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-01-12T21:40:50.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -587,7 +587,7 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 36,
+            "duration": 38,
             "TESTING_LIMITS: Number of SOQL queries": {
                 "used": 0,
                 "allowed": 100
@@ -629,7 +629,7 @@
                 "allowed": 100
             }
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:41.000+0000"
     },
     {
         "Children": null,
@@ -639,9 +639,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 22
+            "duration": 31
         },
-        "TestTimestamp": "2025-01-12T21:40:50.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -651,9 +651,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 6
+            "duration": 4
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -663,9 +663,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 6
+            "duration": 3
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -675,9 +675,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 5
+            "duration": 3
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -687,9 +687,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 4
+            "duration": 3
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -699,9 +699,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 4
+            "duration": 2
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -711,9 +711,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 4
+            "duration": 3
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -723,9 +723,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 6
+            "duration": 4
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -735,9 +735,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 4
+            "duration": 3
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -749,7 +749,7 @@
         "Stats": {
             "duration": 4
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -759,9 +759,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 4
+            "duration": 3
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -771,9 +771,9 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 4
+            "duration": 3
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     },
     {
         "Children": null,
@@ -783,8 +783,8 @@
         "Outcome": "Pass",
         "StackTrace": null,
         "Stats": {
-            "duration": 4
+            "duration": 2
         },
-        "TestTimestamp": "2025-01-12T21:40:51.000+0000"
+        "TestTimestamp": "2025-01-13T00:54:40.000+0000"
     }
 ]

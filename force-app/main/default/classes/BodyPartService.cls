@@ -9,6 +9,18 @@ public with sharing class BodyPartService {
     private static final String STATUS_COMPLETE = 'Complete';
     private static final String FILE_NAME_PREFIX = 'BodyPartDrawing_';
 
+    private List<Body_Part__c> newList;
+    private Map<Id, Body_Part__c> oldMap;
+
+    public BodyPartService(List<Body_Part__c> newList, Map<Id, Body_Part__c> oldMap) {
+        this.newList = newList;
+        this.oldMap = oldMap;
+    }
+    
+    /******************************************************************
+     * Static Methods
+     ******************************************************************/
+
     /**
      * Get ordered body parts for an exquisite corpse
      */
@@ -75,17 +87,21 @@ public with sharing class BodyPartService {
         }
     }
 
+    /******************************************************************
+     * Instance Methods
+     ******************************************************************/
+
     /**
      * Handle associated actions when a body part status is changed to Complete
      */
-    public static void handleStatusCompleted(List<Body_Part__c> newList, Map<Id, Body_Part__c> oldMap) {
-        List<Body_Part__c> completedParts = filterToNewlyCompleted(newList, oldMap);
+    public void handleStatusCompleted() {
+        List<Body_Part__c> completedParts = filterToNewlyCompleted();
         if (!completedParts.isEmpty()) {
             new BodyPartCompletionHandler(completedParts).run();
         }
     }
 
-    private static List<Body_Part__c> filterToNewlyCompleted(List<Body_Part__c> newList, Map<Id, Body_Part__c> oldMap) {
+    private List<Body_Part__c> filterToNewlyCompleted() {
         List<Body_Part__c> filteredParts = new List<Body_Part__c>();
         for (Body_Part__c bp : newList) {
             if (bp.Status__c == STATUS_COMPLETE && oldMap.get(bp.Id).Status__c != STATUS_COMPLETE) {
@@ -94,25 +110,19 @@ public with sharing class BodyPartService {
         }
         return filteredParts;
     }
-
-    /**
-     * Update body part record names to the default convention
-     */
-    public static void updateRecordNames(List<Body_Part__c> newList) {
-        updateRecordNames(newList, null);
-    }
     
     /**
+     * Update body part record names to the default convention 
      * Update record names for updated records - filters on changed artist values
      */
-    public static void updateRecordNames(List<Body_Part__c> newList, Map<Id, Body_Part__c> oldMap) {
+    public void updateRecordNames() {
         List<Body_Part__c> bodyPartsToRename = new List<Body_Part__c>();
 
         if (oldMap == null) {
             bodyPartsToRename.addAll(newList);
         } else {
             // Identify parts with changed artists to re-name
-            bodyPartsToRename.addAll( filterToChangedArtists(newList, oldMap) );
+            bodyPartsToRename.addAll( filterToChangedArtists() );
         }
 
         if (!bodyPartsToRename.isEmpty()) {
@@ -120,7 +130,7 @@ public with sharing class BodyPartService {
         }
     }
 
-    private static List<Body_Part__c> filterToChangedArtists(List<Body_Part__c> newList, Map<Id, Body_Part__c> oldMap) {
+    private List<Body_Part__c> filterToChangedArtists() {
         List<Body_Part__c> filteredParts = new List<Body_Part__c>();
         for (Body_Part__c bp : newList) {
             if (bp.Artist__c != oldMap.get(bp.Id).Artist__c) {
@@ -160,6 +170,7 @@ public with sharing class BodyPartService {
               FROM ContentDocumentLink 
              WHERE LinkedEntityId = :linkedEntityId 
                AND ContentDocument.Title LIKE 'BodyPartDrawing_%'
+              WITH SYSTEM_MODE
         ];
 
         if (ars != null && !ars.isEmpty()) {
