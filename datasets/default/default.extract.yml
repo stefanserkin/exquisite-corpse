@@ -4,3 +4,7 @@ extract:
         fields: FIELDS(ALL)
     Body_Part_Type__c:
         fields: FIELDS(ALL)
+    Exquisite_Corpse__c:
+        fields: FIELDS(ALL)
+    Body_Part__c:
+        fields: FIELDS(ALL)

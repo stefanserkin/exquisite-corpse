@@ -24,3 +24,32 @@ Insert Body_Part_Type__c:
       - Body_Type__c
       key_field: Body_Type__c
   select_options: {}
+Insert Exquisite_Corpse__c:
+  sf_object: Exquisite_Corpse__c
+  table: Exquisite_Corpse__c
+  fields:
+  - Completed_Date_Time__c
+  - Name
+  - Status__c
+  lookups:
+    Body_Type__c:
+      table:
+      - Body_Type__c
+      key_field: Body_Type__c
+  select_options: {}
+Insert Body_Part__c:
+  sf_object: Body_Part__c
+  table: Body_Part__c
+  fields:
+  - Name
+  - Status__c
+  lookups:
+    Body_Part_Type__c:
+      table:
+      - Body_Part_Type__c
+      key_field: Body_Part_Type__c
+    Exquisite_Corpse__c:
+      table:
+      - Exquisite_Corpse__c
+      key_field: Exquisite_Corpse__c
+  select_options: {}
